@@ -1,0 +1,9 @@
+{
+  "schema": "smf.tool-permit.v1",
+  "agent": "Sandbox Lab",
+  "project": "hermes-scratch",
+  "scope": "Local experiments. No prod, no money, no outbound.",
+  "expiry": { "kind": "session" },
+  "allowed": ["shell", "browser", "read", "write", "git"],
+  "denied": ["deploy", "payments", "email"]
+}

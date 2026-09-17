@@ -1,0 +1,9 @@
+{
+  "schema": "smf.tool-permit.v1",
+  "agent": "Read-only Researcher",
+  "project": "literature-pass",
+  "scope": "Survey the repo and the web. Hands off the working tree.",
+  "expiry": { "kind": "date", "date": "2026-10-01" },
+  "allowed": ["read", "search", "browser", "grep", "glob"],
+  "denied": ["write", "shell", "git", "deploy", "payments", "email"]
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "smf.tool-permit.v1",
+  "agent": "Docs Scribe",
+  "project": "lab-notebook",
+  "scope": "Read the corpus. Draft notes. Do not mutate the tree.",
+  "expiry": { "kind": "date", "date": "2026-12-31" },
+  "allowed": ["read", "search", "grep", "glob", "browser"],
+  "denied": ["write", "shell", "git", "deploy"]
+}

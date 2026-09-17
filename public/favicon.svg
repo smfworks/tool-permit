@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Tool Permit">
+  <rect width="32" height="32" rx="7" fill="#0A0F1F"/>
+  <circle cx="16" cy="16" r="10.2" fill="none" stroke="#00D4FF" stroke-width="1.7"/>
+  <circle cx="16" cy="16" r="7.6" fill="none" stroke="#34d399" stroke-width="0.7" stroke-dasharray="1.5 1.15"/>
+  <text x="16" y="18.6" text-anchor="middle" font-size="6.2" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="700" fill="#00D4FF" letter-spacing="0.4">GO</text>
+</svg>
