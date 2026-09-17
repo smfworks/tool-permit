@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/smfworks/tool-permit/blob/main/public/schema/tool-permit.schema.json",
+  "title": "ToolPermit",
+  "description": "Machine-readable agent tool allowlist. Other tools can emit this shape so Tool Permit can print a GO / ALLOWLIST card. This is a communication artifact, not an enforcement runtime.",
+  "type": "object",
+  "required": ["agent", "allowed"],
+  "additionalProperties": true,
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "smf.tool-permit.v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^TP-[0-9A-F]{4}$",
+      "description": "Permit serial printed on the card."
+    },
+    "agent": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Issued-for: agent or operator name."
+    },
+    "issuedFor": {
+      "type": "string",
+      "description": "Alias for agent."
+    },
+    "project": {
+      "type": "string",
+      "description": "Optional repo, stack, or project slug."
+    },
+    "scope": {
+      "type": "string",
+      "description": "One-line bound on what the agent is allowed to do."
+    },
+    "expiry": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind"],
+          "additionalProperties": false,
+          "properties": { "kind": { "const": "session" } }
+        },
+        {
+          "type": "object",
+          "required": ["kind", "date"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "date" },
+            "date": { "type": "string", "format": "date" }
+          }
+        }
+      ]
+    },
+    "allowed": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "GO-list. Tools the agent may use."
+    },
+    "allowlist": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Alias for allowed."
+    },
+    "denied": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional contrast list. Denied wins on overlap with allowed."
+    },
+    "refused": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Alias for denied."
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "heuristic": {
+      "type": "boolean",
+      "const": true,
+      "description": "Always true — this is a demo printer, not a policy engine."
+    }
+  }
+}

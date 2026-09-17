@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0F1F" />
+    <title>Tool Permit · SMF Works</title>
+    <meta
+      name="description"
+      content="Declare which tools an agent may use. Print a shareable GO / allowlist permit card. Dark, client-side only. Built by SMF Works."
+    />
+    <link rel="canonical" href="https://github.com/smfworks/tool-permit" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SMF Works" />
+    <meta property="og:title" content="Tool Permit · SMF Works" />
+    <meta
+      property="og:description"
+      content="Declare the GO-list. Print an allowlist badge. Share the permit — not a security boundary."
+    />
+    <meta property="og:url" content="https://github.com/smfworks/tool-permit" />
+    <meta property="og:image" content="/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="A dark Tool Permit allowlist card from SMF Works"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tool Permit · SMF Works" />
+    <meta
+      name="twitter:description"
+      content="The GO-list twin of Refuse Card. Lab artifact for communication, not an enforcement runtime."
+    />
+    <meta name="twitter:image" content="/og.png" />
+    <meta name="twitter:site" content="@MichaelGannotti" />
+  </head>
+  <body>
+    <script>
+      (function () {
+        var shot = new URLSearchParams(location.search).get("shot");
+        if (shot === "card" || shot === "og") document.body.classList.add("shot-" + shot);
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

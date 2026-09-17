@@ -1,0 +1,9 @@
+{
+  "schema": "smf.tool-permit.v1",
+  "agent": "Ship Crew",
+  "project": "tool-permit",
+  "scope": "Build, test, open a PR. Money and public posts stay human.",
+  "expiry": { "kind": "session" },
+  "allowed": ["shell", "browser", "read", "write", "edit", "git", "deploy"],
+  "denied": ["payments", "email"]
+}
