@@ -126,6 +126,8 @@ a:hover {
   font-size: 15px;
 }
 
+.kit-nav { margin-bottom: 24px; }
+
 .sisters {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
