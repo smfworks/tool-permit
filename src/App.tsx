@@ -187,7 +187,29 @@ export default function App() {
     <div className="page">
       <div className="ambient" aria-hidden="true" />
       <Header />
-      <SisterStrip current="tool-permit" payload={JSON.stringify(draft)} />
+      <SisterStrip current="tool-permit" payload={JSON.stringify(draft)} kind="json" />
+      <HandoffBanner
+        accept={["json", "plain"]}
+        onPaste={(text) => {
+          try {
+            const parsed = JSON.parse(text) as Record<string, unknown>;
+            const source = (
+              parsed.draft && typeof parsed.draft === "object" ? parsed.draft : parsed
+            ) as Partial<PermitDraft>;
+            setDraft(
+              cloneDraft({
+                ...EMPTY_DRAFT,
+                ...source,
+                allowed: Array.isArray(source.allowed) ? source.allowed.map(String) : EMPTY_DRAFT.allowed,
+                denied: Array.isArray(source.denied) ? source.denied.map(String) : EMPTY_DRAFT.denied,
+              }),
+            );
+            setSampleId(null);
+          } catch {
+            /* not JSON — this app has no freeform paste box */
+          }
+        }}
+      />
       <main className="layout">
         <Composer
           draft={draft}
